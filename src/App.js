@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import EmailPasswordRegisterAndLogin from "./Components/EmailPassword/EmailPasswordRegisterAndLogin";
-
-import GoogleSignIn from "./Components/GoogleSignIn/GoogleSignIn";
+// import EmailPasswordRegisterAndLogin from "./Components/EmailPassword/EmailPasswordRegisterAndLogin";
+// import GoogleSignIn from "./Components/GoogleSignIn/GoogleSignIn";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
@@ -25,12 +24,13 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/register">
-              <Register></Register>
-            </Route>
             <PrivateRoute path="/shipping">
               <Shipping></Shipping>
             </PrivateRoute>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+
             <Route path="/login">
               <Login></Login>
             </Route>
