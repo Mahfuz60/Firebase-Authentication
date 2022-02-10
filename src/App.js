@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "./App.css";
+import EmailPasswordRegisterAndLogin from "./Components/EmailPassword/EmailPasswordRegisterAndLogin";
+
+import GoogleSignIn from "./Components/GoogleSignIn/GoogleSignIn";
+import Header from "./Components/Header/Header";
+import Home from "./Components/Home/Home";
+import Login from "./Components/Login/Login";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Register from "./Components/Register/Register";
+import AuthProvider from "./context/AuthProvider";
+import Shipping from "./Components/Shipping/Shipping";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <GoogleSignIn></GoogleSignIn> */}
+      {/* <EmailPasswordRegisterAndLogin></EmailPasswordRegisterAndLogin> */}
+
+      <AuthProvider>
+        <BrowserRouter>
+          <Header></Header>
+
+          <Switch>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+            <PrivateRoute path="/shipping">
+              <Shipping></Shipping>
+            </PrivateRoute>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
